@@ -159,23 +159,23 @@ class PythonLanguageServer(MethodDispatcher):
         server_capabilities = {
             'codeActionProvider': True,
             'codeLensProvider': {
-                'resolveProvider': False,  # We may need to make this configurable
+                'resolveProvider': True,  # We may need to make this configurable
             },
             'completionProvider': {
-                'resolveProvider': False,  # We know everything ahead of time
+                'resolveProvider': True,  # We know everything ahead of time
                 'triggerCharacters': ['.']
             },
             'documentFormattingProvider': True,
             'documentHighlightProvider': True,
             'documentRangeFormattingProvider': True,
             'documentSymbolProvider': True,
-            'definitionProvider': True,
+            'definitionProvider': False,
             'executeCommandProvider': {
                 'commands': flatten(self._hook('pyls_commands'))
             },
             'hoverProvider': True,
             'referencesProvider': True,
-            'renameProvider': True,
+            'renameProvider': False,
             'foldingRangeProvider': True,
             'signatureHelpProvider': {
                 'triggerCharacters': ['(', ',', '=']
